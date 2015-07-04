@@ -7,19 +7,18 @@
 CronJob = require("cron").CronJob
 
 module.exports = (robot) ->
+
   taskA = ->
     robot.send {room: "bottest"}, "特定のチャネルへ投稿してみたよ！"
-  # ..
+#     console.log "test"
 
-job = new CronJob(
-  cronTime: "10 * * * * *"
-  onTick: ->
-    taskA()
-    return
-  start: false
-)
-
-module.exports = (robot) ->
+  job = new CronJob(
+    cronTime: "10 * * * * *"
+    onTick: ->
+      taskA()
+      return
+    start: false
+  )
 
   robot.respond /start job/i, (msg) ->
     msg.send "Start job.."
