@@ -9,11 +9,11 @@ CronJob = require("cron").CronJob
 module.exports = (robot) ->
 
   taskA = ->
-    robot.send {room: "bottest"}, "特定のチャネルへ投稿してみたよ！"
+    robot.send {room: "private-study"}, "進捗報告してね（はーと）！"
 #     console.log "test"
 
   job = new CronJob(
-    cronTime: "10 * * * * *"
+    cronTime: "00 00 10 * * 1"
     onTick: ->
       taskA()
       return
