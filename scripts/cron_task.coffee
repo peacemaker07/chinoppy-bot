@@ -6,10 +6,9 @@
 #   hubot stop  job - stop cron
 CronJob = require("cron").CronJob
 
-taskA = ->
-  module.exports = (robot) ->
-    envelope = room: "bottest"
-    robot.send envelope, "特定のチャネルへ投稿してみたよ！"
+module.exports = (robot) ->
+  taskA = ->
+    robot.send {room: "bottest"}, "特定のチャネルへ投稿してみたよ！"
   # ..
 
 job = new CronJob(
